@@ -39,21 +39,11 @@ def scrape(appID):
         return
 
     # generic game item wrapper
-    gameWrapperArr = gamePurchaseArea.find_all(class_="game_area_purchase_game_wrapper")
+    gameWrapperArr = gamePurchaseArea.find_all(class_="game_area_purchase_game")
     if ( gameWrapperArr == None ):
-        print("> WARNING:", "no game wrappers found")
+        print("> ERROR:", "no game wrappers found")
     else:
         print("> game wrappers:", len(gameWrapperArr))
-
-    # old games or free-to-play games might use this item wrapper instead
-    oldFreePlayWrapper = gamePurchaseArea.find_all(class_="game_area_purchase_game")
-    if ( oldFreePlayWrapper != None ):
-        gameWrapperArr = gameWrapperArr + oldFreePlayWrapper
-        print("> old free wrapper:", len(oldFreePlayWrapper), "additional free (old) wrapper(s) found.")
-
-    if ( gameWrapperArr == None or len(gameWrapperArr) == 0):
-        print("> ERROR:", "Absolutely NO game wrappers found !")
-        return
 
     ### per game wrapper data
 
