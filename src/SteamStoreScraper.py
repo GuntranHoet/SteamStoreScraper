@@ -48,10 +48,11 @@ def scrape(appID):
     ### per game wrapper data
 
     for wrapper in gameWrapperArr:
+        print("")
+
         itemName = wrapper.find('h1')
         if ( itemName != None ):
-            itemNameText = itemName.text.strip()
-            print("")
+            itemNameText = itemName.contents[0].strip()
             print( "# Item:", itemNameText )
         
         purchasePrice = wrapper.find(class_="game_purchase_price")
