@@ -85,7 +85,7 @@ def scrape(appID):
             countdownText = countdown.text.strip()
             span = countdown.find("span")
             if ( span != None ):
-                countdownText = span.text.strip()
+                countdownText += span.text.strip() # span text will be empty since it's set by a script later
                 print( "  countdown:", countdownText )
             else:
                 print( "  countdown:", countdownText )
